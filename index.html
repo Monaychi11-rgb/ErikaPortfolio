@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Erika Palagam | Resume</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+
+<style>
+
+/* =====================================================
+   PDF VIEWER
+===================================================== */
+
+.pdf-viewer {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: none;
+
+    flex-direction: column;
+
+    padding: 20px;
+
+    background: rgba(35, 15, 28, 0.88);
+
+    backdrop-filter: blur(10px);
+}
+
+.pdf-viewer.show {
+    display: flex;
+}
+
+.pdf-header {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+}
+
+.pdf-header h2 {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 22px;
+}
+
+.pdf-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.pdf-button {
+    border: none;
+
+    padding: 10px 17px;
+
+    border-radius: 999px;
+
+    background: white;
+
+    color: #9b4d70;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.pdf-button:hover {
+    transform: translateY(-2px);
+
+    background: #fff0f5;
+}
+
+.pdf-frame {
+    width: 100%;
+
+    max-width: 1100px;
+
+    height: calc(100vh - 85px);
+
+    margin: 0 auto;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: white;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   NAVIGATION BUTTONS
+===================================================== */
+
+.nav-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.print-btn {
+    border: 1px solid #e8a9c2;
+
+    background: white;
+
+    color: #9b4d70;
+
+    padding: 10px 16px;
+
+    border-radius: 999px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.print-btn:hover {
+    background: #fff0f5;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   CONTACT OVERLAY
+===================================================== */
+
+.contact-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(48, 20, 35, 0.65);
+
+    backdrop-filter: blur(10px);
+}
+
+.contact-overlay.show {
+    display: flex;
+}
+
+
+/* =====================================================
+   CONTACT CARD
+===================================================== */
+
+.contact-card {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 40px 35px 30px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff5f8
+        );
+
+    box-shadow:
+        0 25px 80px rgba(120, 50, 80, 0.25);
+
+    text-align: center;
+
+    animation: contactPop 0.35s ease;
+}
+
+
+@keyframes contactPop {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE CONTACT
+===================================================== */
+
+.close-contact {
+    position: absolute;
+
+    top: 15px;
+    right: 17px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #fff0f5;
+
+    color: #a65376;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.close-contact:hover {
+
+    transform: rotate(90deg);
+
+    background: #f9dce8;
+}
+
+
+/* =====================================================
+   CONTACT HEART
+===================================================== */
+
+.contact-heart {
+
+    display: flex;
+
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fce1eb;
+
+    color: #c05a80;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(192, 90, 128, 0.15);
+}
+
+
+/* =====================================================
+   CONTACT LABEL
+===================================================== */
+
+.contact-label {
+
+    margin: 0 0 5px;
+
+    color: #b05a7c;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   CONTACT TITLE
+===================================================== */
+
+.contact-card h2 {
+
+    margin: 0 0 10px;
+
+    color: #5b3044;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+}
+
+.contact-card h2 span {
+
+    color: #d4779b;
+}
+
+
+/* =====================================================
+   CONTACT DESCRIPTION
+===================================================== */
+
+.contact-text {
+
+    margin: 0 auto 25px;
+
+    max-width: 330px;
+
+    color: #7c6870;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   CONTACT OPTIONS
+===================================================== */
+
+.contact-option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 12px;
+
+    padding: 15px;
+
+    border: 1px solid #f0d4df;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    text-align: left;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.contact-option:hover {
+
+    transform: translateY(-3px);
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px rgba(150, 70, 100, 0.12);
+}
+
+
+/* =====================================================
+   CONTACT ICON
+===================================================== */
+
+.contact-icon {
+
+    display: flex;
+
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #fff0f5;
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   CONTACT TEXT
+===================================================== */
+
+.contact-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+.contact-info span {
+
+    color: #a85a78;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.contact-info strong {
+
+    overflow: hidden;
+
+    color: #4d3540;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   CONTACT ARROW
+===================================================== */
+
+.contact-arrow {
+
+    color: #c16a8b;
+
+    font-size: 20px;
+
+    transition: transform 0.2s ease;
+}
+
+.contact-option:hover .contact-arrow {
+
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   CONTACT FOOTER
+===================================================== */
+
+.contact-footer {
+
+    margin: 22px 0 0;
+
+    color: #b27a90;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .print-btn {
+        padding: 8px 11px;
+
+        font-size: 11px;
+    }
+
+    .contact-card {
+        padding: 35px 20px 25px;
+    }
+
+    .contact-card h2 {
+        font-size: 27px;
+    }
+
+    .contact-option {
+        padding: 12px;
+    }
+
+    .pdf-viewer {
+        padding: 10px;
+    }
+
+    .pdf-header h2 {
+        font-size: 17px;
+    }
+
+    .pdf-buttons {
+        gap: 5px;
+    }
+
+    .pdf-button {
+        padding: 8px 11px;
+
+        font-size: 12px;
+    }
+
+    .pdf-frame {
+        height: calc(100vh - 65px);
+
+        border-radius: 10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FLOATING DECORATIONS
+===================================================== -->
+
+<div class="hearts" aria-hidden="true">
+
+    <span>♡</span>
+
+    <span>✦</span>
+
+    <span>♡</span>
+
+    <span>✧</span>
+
+    <span>♡</span>
+
+    <span>✦</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     LOCK SCREEN
+===================================================== -->
+
+<section id="lockScreen" class="lock-screen">
+
+    <div class="glow"></div>
+
+
+    <div class="lock-card">
+
+
+        <div class="sparkle">
+            ✦
+        </div>
+
+
+        <div id="lockIcon" class="lock-icon">
+            🔒
+        </div>
+
+
+        <p class="tiny-label">
+            PRIVATE RESUME
+        </p>
+
+
+        <h1>
+            Erika's Portfolio
+        </h1>
+
+
+        <p class="lock-text">
+            A little pink door to my professional journey.
+        </p>
+
+
+        <button
+            id="unlockBtn"
+            class="unlock-btn"
+            type="button">
+
+            <span>🔐</span>
+
+            Click to Unlock
+
+        </button>
+
+
+        <p class="hint">
+            tap the lock to reveal my resume ♡
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESUME
+===================================================== -->
+
+<main id="resume" class="resume hidden">
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================= -->
+
+    <nav class="nav">
+
+
+        <div class="brand">
+
+            erika<span>♡</span>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+
+            <button
+                id="viewResumeBtn"
+                class="print-btn"
+                type="button">
+
+                📄 View Resume PDF
+
+            </button>
+
+
+            <button
+                id="lockAgain"
+                class="mini-lock"
+                type="button">
+
+                🔒 Lock
+
+            </button>
+
+
+        </div>
+
+
+    </nav>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <header class="hero">
+
+
+        <div class="hero-card">
+
+
+            <div class="status">
+                ✦ AVAILABLE FOR OPPORTUNITIES
+            </div>
+
+
+            <p class="eyebrow">
+                HELLO, I'M
+            </p>
+
+
+            <h1>
+
+                Erika Van Imeren
+
+                <br>
+
+                <span>
+                    A. Palagam
+                </span>
+
+            </h1>
+
+
+            <p class="role">
+
+                Computer Science Graduate
+
+                <b>•</b>
+
+                Web Development
+
+                <b>•</b>
+
+                Software Testing
+
+            </p>
+
+
+            <p class="objective">
+
+                A motivated Computer Science graduate seeking
+                an entry-level position where I can apply my
+                knowledge in web development, software testing,
+                networking, and information technology.
+                Eager to contribute to a professional team,
+                develop technical skills, and deliver quality work.
+
+            </p>
+
+
+            <div class="contacts">
+
+
+                <a href="tel:+63664205710">
+
+                    📞 +63 664 205 710
+
+                </a>
+
+
+                <a href="mailto:erika.palagam11@gmail.com">
+
+                    ✉️ erika.palagam11@gmail.com
+
+                </a>
+
+
+                <span>
+
+                    📍 Sauyo, Quezon City, Philippines
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PHOTO -->
+
+        <div class="flower-card">
+
+
+            <div class="flower">
+
+                <img
+                    src="Pic/erika.png"
+                    alt="Erika Palagam">
+
+            </div>
+
+
+            <div class="orbit">
+                ♡
+            </div>
+
+
+            <p>
+
+                CREATIVE
+
+                <br>
+
+                <strong>
+                    &
+                </strong>
+
+                <br>
+
+                CURIOUS
+
+            </p>
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =================================================
+         TECHNICAL SKILLS
+    ================================================= -->
+
+    <section class="section">
+
+
+        <div class="section-title">
+
+            <span>
+                01
+            </span>
+
+            <h2>
+                Technical Skills
+            </h2>
+
+        </div>
+
+
+        <div class="skill-grid">
+
+
+            <article class="skill-card featured">
+
+
+                <div class="icon">
+                    🧪
+                </div>
+
+
+                <h3>
+                    Software Testing
+                </h3>
+
+
+                <p>
+
+                    Manual Testing ·
+                    Regression Testing ·
+                    Test Case Creation ·
+                    Test Scripts ·
+                    Test Plans ·
+                    Functional Testing ·
+                    UI Testing ·
+                    Bug Reporting ·
+                    Test Reports ·
+                    SDLC
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="skill-card">
+
+
+                <div class="icon">
+                    💻
+                </div>
+
+
+                <h3>
+                    Web Development
+                </h3>
+
+
+                <p>
+
+                    React.js ·
+                    JavaScript ·
+                    HTML ·
+                    CSS ·
+                    Responsive Web Design
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="skill-card">
+
+
+                <div class="icon">
+                    📱
+                </div>
+
+
+                <h3>
+                    Mobile Development
+                </h3>
+
+
+                <p>
+                    Apache Cordova
+                </p>
+
+
+            </article>
+
+
+
+            <article class="skill-card">
+
+
+                <div class="icon">
+                    🛠️
+                </div>
+
+
+                <h3>
+                    Development Tools
+                </h3>
+
+
+                <p>
+
+                    Git ·
+                    GitHub ·
+                    Visual Studio Code
+
+                </p>
+
+
+            </article>
+
+
+        </div>
+
+
+        <div class="testing-list">
+
+
+            <span>
+                ✓ Creating & executing test cases
+            </span>
+
+
+            <span>
+                ✓ Functional & UI testing
+            </span>
+
+
+            <span>
+                ✓ Identifying & documenting bugs
+            </span>
+
+
+            <span>
+                ✓ Checking features against expected results
+            </span>
+
+
+            <span>
+                ✓ Basic SDLC & testing processes
+            </span>
+
+
+            <span>
+                ✓ Detail-oriented web application testing
+            </span>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         EDUCATIONAL BACKGROUND
+    ================================================= -->
+
+    <section class="section education-section">
+
+
+        <div class="section-title">
+
+            <span>
+                02
+            </span>
+
+            <h2>
+                Educational Background
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="edu">
+
+                <div class="dot"></div>
+
+                <div>
+
+                    <p class="year">
+                        2022 — 2026
+                    </p>
+
+                    <h3>
+
+                        Eulogio Amang Rodriguez
+                        Institute of Science and Technology
+
+                    </h3>
+
+                    <p>
+
+                        Bachelor of Science in Computer Science
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="edu">
+
+                <div class="dot"></div>
+
+                <div>
+
+                    <p class="year">
+                        2016 — 2018
+                    </p>
+
+                    <h3>
+                        Bestlink College of the Philippines
+                    </h3>
+
+                    <p>
+
+                        Information and Communication Technology –
+                        Technical Vocational Course
+
+                        <br>
+
+                        Senior High School
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="edu">
+
+                <div class="dot"></div>
+
+                <div>
+
+                    <p class="year">
+                        2012 — 2016
+                    </p>
+
+                    <h3>
+                        Sauyo High School
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="edu">
+
+                <div class="dot"></div>
+
+                <div>
+
+                    <p class="year">
+                        2007 — 2012
+                    </p>
+
+                    <h3>
+                        Sauyo Elementary School
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PROFESSIONAL STRENGTHS
+    ================================================= -->
+
+    <section class="section strengths-section">
+
+
+        <div class="section-title">
+
+            <span>
+                03
+            </span>
+
+            <h2>
+                Professional Strengths
+            </h2>
+
+        </div>
+
+
+        <div class="strengths">
+
+
+            <div>
+                ♡ Willing to learn and continuously improve
+            </div>
+
+
+            <div>
+                ♡ Detail-oriented and organized
+            </div>
+
+
+            <div>
+                ♡ Strong attention to detail and accuracy
+            </div>
+
+
+            <div>
+                ♡ Independent and collaborative
+            </div>
+
+
+            <div>
+                ♡ Good communication and time management
+            </div>
+
+
+            <div>
+                ♡ Adaptable to new technologies
+            </div>
+
+
+            <div>
+                ♡ Responsible and task-oriented
+            </div>
+
+
+            <div>
+                ♡ Efficient in completing assigned tasks
+            </div>
+
+
+            <div>
+                ♡ Open to feedback and learning
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer>
+
+
+        <div class="footer-flower">
+            🌷
+        </div>
+
+
+        <h2>
+
+            Let's create something
+
+            <br>
+
+            <em>
+                beautiful & useful.
+            </em>
+
+        </h2>
+
+
+        <!-- SAY HELLO -->
+
+        <button
+            id="contactBtn"
+            class="email-btn"
+            type="button">
+
+            Say Hello ♡
+
+        </button>
+
+
+        <p>
+
+            © 2026 Erika Van Imeren a. Palagam
+            · Made with ♡
+
+        </p>
+
+
+    </footer>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     PDF VIEWER
+===================================================== -->
+
+<div
+    id="pdfViewer"
+    class="pdf-viewer">
+
+
+    <div class="pdf-header">
+
+
+        <h2>
+            Erika Palagam — Resume
+        </h2>
+
+
+        <div class="pdf-buttons">
+
+
+            <button
+                id="openPdf"
+                class="pdf-button"
+                type="button">
+
+                ↗ Open
+
+            </button>
+
+
+            <button
+                id="closePdf"
+                class="pdf-button"
+                type="button">
+
+                ✕ Close
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <iframe
+        id="pdfFrame"
+        class="pdf-frame"
+        src="Pic/ErikaResume.pdf"
+        title="Erika Palagam Resume PDF">
+    </iframe>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTACT CARD
+===================================================== -->
+
+<div
+    id="contactOverlay"
+    class="contact-overlay">
+
+
+    <div class="contact-card">
+
+
+        <button
+            id="closeContact"
+            class="close-contact"
+            type="button">
+
+            ✕
+
+        </button>
+
+
+        <div class="contact-heart">
+            ♡
+        </div>
+
+
+        <p class="contact-label">
+            LET'S CONNECT
+        </p>
+
+
+        <h2>
+
+            Say Hello<span>♡</span>
+
+        </h2>
+
+
+        <p class="contact-text">
+
+            I'd love to hear from you!
+            Feel free to reach out through
+            email or phone.
+
+        </p>
+
+
+
+        <!-- EMAIL -->
+
+        <a
+            href="mailto:erika.palagam11@gmail.com"
+            class="contact-option">
+
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+
+            <div class="contact-info">
+
+                <span>
+                    Email Me
+                </span>
+
+                <strong>
+                    erika.palagam11@gmail.com
+                </strong>
+
+            </div>
+
+
+            <div class="contact-arrow">
+                →
+            </div>
+
+
+        </a>
+
+
+
+        <!-- PHONE -->
+
+        <a
+            href="tel:+63664205710"
+            class="contact-option">
+
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+
+            <div class="contact-info">
+
+                <span>
+                    Contact Me
+                </span>
+
+                <strong>
+                    +63 664 205 710
+                </strong>
+
+            </div>
+
+
+            <div class="contact-arrow">
+                →
+            </div>
+
+
+        </a>
+
+
+        <p class="contact-footer">
+
+            Available for opportunities ♡
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   GET ELEMENTS
+===================================================== */
+
+const lockScreen =
+    document.getElementById("lockScreen");
+
+const resume =
+    document.getElementById("resume");
+
+const unlockBtn =
+    document.getElementById("unlockBtn");
+
+const lockAgain =
+    document.getElementById("lockAgain");
+
+const lockIcon =
+    document.getElementById("lockIcon");
+
+
+/* PDF */
+
+const viewResumeBtn =
+    document.getElementById("viewResumeBtn");
+
+const pdfViewer =
+    document.getElementById("pdfViewer");
+
+const closePdf =
+    document.getElementById("closePdf");
+
+const openPdf =
+    document.getElementById("openPdf");
+
+
+/* CONTACT */
+
+const contactBtn =
+    document.getElementById("contactBtn");
+
+const contactOverlay =
+    document.getElementById("contactOverlay");
+
+const closeContact =
+    document.getElementById("closeContact");
+
+
+
+/* =====================================================
+   UNLOCK
+===================================================== */
+
+unlockBtn.addEventListener("click", function () {
+
+
+    lockIcon.textContent = "🔓";
+
+
+    setTimeout(function () {
+
+
+        lockScreen.classList.add("hide");
+
+
+        setTimeout(function () {
+
+
+            lockScreen.style.display = "none";
+
+
+            resume.classList.remove("hidden");
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+        }, 500);
+
+
+    }, 300);
+
+});
+
+
+
+/* =====================================================
+   LOCK AGAIN
+===================================================== */
+
+lockAgain.addEventListener("click", function () {
+
+
+    resume.classList.add("hidden");
+
+
+    pdfViewer.classList.remove("show");
+
+
+    contactOverlay.classList.remove("show");
+
+
+    document.body.style.overflow = "";
+
+
+    lockScreen.style.display = "flex";
+
+
+    setTimeout(function () {
+
+        lockScreen.classList.remove("hide");
+
+    }, 50);
+
+
+    lockIcon.textContent = "🔒";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+
+});
+
+
+
+/* =====================================================
+   OPEN PDF
+===================================================== */
+
+viewResumeBtn.addEventListener("click", function () {
+
+
+    pdfViewer.classList.add("show");
+
+
+    document.body.style.overflow = "hidden";
+
+
+});
+
+
+
+/* =====================================================
+   CLOSE PDF
+===================================================== */
+
+closePdf.addEventListener("click", function () {
+
+
+    pdfViewer.classList.remove("show");
+
+
+    document.body.style.overflow = "";
+
+
+});
+
+
+
+/* =====================================================
+   OPEN PDF IN NEW TAB
+===================================================== */
+
+openPdf.addEventListener("click", function () {
+
+
+    window.open(
+        "ErikaResume.pdf",
+        "_blank"
+    );
+
+
+});
+
+
+
+/* =====================================================
+   OPEN CONTACT CARD
+===================================================== */
+
+contactBtn.addEventListener("click", function () {
+
+
+    contactOverlay.classList.add("show");
+
+
+    document.body.style.overflow = "hidden";
+
+
+});
+
+
+
+/* =====================================================
+   CLOSE CONTACT CARD
+===================================================== */
+
+closeContact.addEventListener("click", function () {
+
+
+    contactOverlay.classList.remove("show");
+
+
+    document.body.style.overflow = "";
+
+
+});
+
+
+
+/* =====================================================
+   CLICK OUTSIDE CONTACT CARD
+===================================================== */
+
+contactOverlay.addEventListener("click", function (event) {
+
+
+    if (event.target === contactOverlay) {
+
+
+        contactOverlay.classList.remove("show");
+
+
+        document.body.style.overflow = "";
+
+
+    }
+
+});
+
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener("keydown", function (event) {
+
+
+    if (event.key === "Escape") {
+
+
+        if (pdfViewer.classList.contains("show")) {
+
+
+            pdfViewer.classList.remove("show");
+
+
+            document.body.style.overflow = "";
+
+
+        }
+
+
+        if (contactOverlay.classList.contains("show")) {
+
+
+            contactOverlay.classList.remove("show");
+
+
+            document.body.style.overflow = "";
+
+
+        }
+
+
+    }
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

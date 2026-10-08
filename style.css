@@ -1,0 +1,805 @@
+/* ==================================================
+   1. GLOBAL STYLES
+================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #fff7fb;
+    color: #4d3040;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==================================================
+   2. LOCK SCREEN
+================================================== */
+
+.lock-screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    padding: 25px;
+
+    background: radial-gradient(
+        circle at 50% 30%,
+        #fff 0,
+        #ffe8f2 35%,
+        #f9c4d9 100%
+    );
+
+    position: relative;
+    overflow: hidden;
+}
+
+.lock-screen::before,
+.lock-screen::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(3px);
+    pointer-events: none;
+}
+
+.lock-screen::before {
+    width: 420px;
+    height: 420px;
+    background: #fff;
+    opacity: 0.45;
+    top: -180px;
+    left: -130px;
+}
+
+.lock-screen::after {
+    width: 500px;
+    height: 500px;
+    background: #f29ab9;
+    opacity: 0.2;
+    bottom: -300px;
+    right: -160px;
+}
+
+
+/* ==================================================
+   3. LOCK CARD
+================================================== */
+
+.lock-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 430px;
+    margin: auto;
+    padding: 55px 50px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 34px;
+
+    box-shadow: 0 25px 80px rgba(190, 87, 126, 0.2);
+    backdrop-filter: blur(18px);
+}
+
+.sparkle {
+    position: absolute;
+    right: 35px;
+    top: 25px;
+    color: #dc7197;
+}
+
+.lock-icon {
+    font-size: 62px;
+    margin-bottom: 14px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.tiny-label,
+.eyebrow {
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #c85d87;
+}
+
+.lock-card h1 {
+    font: 600 38px 'Playfair Display', serif;
+    margin: 7px 0;
+    color: #4d3040;
+}
+
+.lock-text {
+    color: #896474;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+}
+
+.unlock-btn {
+    border: 0;
+    background: #d96894;
+    color: #fff;
+    border-radius: 999px;
+    padding: 15px 28px;
+    font: 700 14px 'DM Sans', sans-serif;
+    box-shadow: 0 10px 25px #d9689444;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.unlock-btn:hover {
+    transform: translateY(-3px);
+    background: #c95683;
+}
+
+.hint {
+    font-size: 11px;
+    color: #aa7a8d;
+    margin-top: 17px;
+}
+
+
+/* ==================================================
+   4. NAVIGATION
+================================================== */
+
+.nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 22px;
+}
+
+.brand {
+    font: 700 25px 'Playfair Display', serif;
+    color: #553445;
+}
+
+.brand span {
+    color: #d96794;
+}
+
+.mini-lock {
+    background: #fff;
+    border: 1px solid #f1cad9;
+    color: #a94f76;
+    border-radius: 999px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.resume {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* ==================================================
+   5. HERO / INTRODUCTION
+================================================== */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 22px;
+    padding: 20px 30px 60px;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, #fff, #fff3f8);
+    border: 1px solid #f4d8e3;
+    border-radius: 32px;
+    padding: 50px;
+    box-shadow: 0 20px 60px #c96a9414;
+}
+
+.status {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 99px;
+    background: #fbe0ea;
+    color: #b34e78;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    font: 600 clamp(45px, 7vw, 78px)/0.95 'Playfair Display', serif;
+    margin: 18px 0;
+    color: #4b2f3d;
+}
+
+.hero h1 span {
+    color: #d15f8b;
+}
+
+.role {
+    font-size: 15px;
+    color: #93677a;
+}
+
+.role b {
+    color: #df86a5;
+    margin: 0 5px;
+}
+
+.objective {
+    max-width: 730px;
+    color: #765565;
+    line-height: 1.75;
+}
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.contacts a,
+.contacts span {
+    background: #fff;
+    border: 1px solid #f2dbe4;
+    padding: 10px 13px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #6f4b5b;
+    font-size: 12px;
+}
+
+.flower-card {
+    border-radius: 32px;
+    background: linear-gradient(160deg, #f7b4cd, #e57ea6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px #c858842b;
+}
+
+.flower-card::before {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border: 1px solid #fff8;
+    border-radius: 50%;
+}
+
+.flower {
+    font-size: 110px;
+    filter: drop-shadow(0 10px 10px #9f476455);
+}
+
+.flower-card p {
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.flower-card strong {
+    font-size: 18px;
+}
+
+.orbit {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-size: 25px;
+}
+
+
+/* ==================================================
+   6. TECHNICAL SKILLS & GENERAL SECTIONS
+================================================== */
+
+.section {
+    padding: 45px 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-title span {
+    font-size: 12px;
+    color: #d76b95;
+    font-weight: 700;
+}
+
+.section-title h2 {
+    font: 600 32px 'Playfair Display', serif;
+    margin: 0;
+    color: #513342;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.skill-card {
+    background: #fff;
+    border: 1px solid #f2d9e3;
+    border-radius: 22px;
+    padding: 25px;
+    min-height: 180px;
+    transition: 0.25s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #c75d8d16;
+}
+
+.skill-card.featured {
+    background: #fff0f6;
+    border-color: #f2bfd3;
+}
+
+.icon {
+    font-size: 28px;
+}
+
+.skill-card h3 {
+    margin: 12px 0 8px;
+    font-size: 17px;
+}
+
+.skill-card p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #806071;
+}
+
+.testing-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.testing-list span {
+    background: #fbe8f0;
+    color: #8e536b;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   7. EDUCATION TIMELINE
+================================================== */
+
+.education-section {
+    background: #fff0f6;
+    border-radius: 35px;
+    margin: 20px 30px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 35px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: #e8a2bb;
+}
+
+.edu {
+    position: relative;
+    padding: 0 0 30px;
+}
+
+.dot {
+    position: absolute;
+    left: -32px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d96994;
+    box-shadow: 0 0 0 5px #f9cede;
+}
+
+.year {
+    color: #cf638b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 5px;
+}
+
+.edu h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+}
+
+.edu p:last-child {
+    margin: 0;
+    color: #856274;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   8. PROFESSIONAL STRENGTHS
+================================================== */
+
+.strengths {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.strengths div {
+    background: #fff;
+    border: 1px solid #f1dce5;
+    border-radius: 15px;
+    padding: 15px;
+    color: #765466;
+    font-size: 13px;
+}
+
+.strengths div:first-letter {
+    color: #d45f8c;
+}
+
+
+/* ==================================================
+   9. FOOTER & SAY HELLO BUTTON
+================================================== */
+
+footer {
+    text-align: center;
+    background: #4d3040;
+    color: white;
+    margin-top: 50px;
+    padding: 60px 20px 35px;
+    border-radius: 40px 40px 0 0;
+}
+
+.footer-flower {
+    font-size: 42px;
+}
+
+footer h2 {
+    font: 500 34px/1.15 'Playfair Display', serif;
+    margin: 15px;
+}
+
+footer em {
+    color: #f3a6c2;
+}
+
+.email-btn {
+    display: inline-block;
+    background: #f28fb2;
+    color: white;
+    text-decoration: none;
+    padding: 12px 23px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+}
+
+footer p {
+    font-size: 10px;
+    color: #cfaeba;
+    margin-top: 35px;
+}
+
+
+/* ==================================================
+   10. CONTACT MODAL
+================================================== */
+
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(77, 48, 64, 0.35);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.contact-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* CONTACT CARD */
+
+.contact-card {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    padding: 40px 30px 30px;
+    text-align: center;
+
+    background: linear-gradient(145deg, #fff, #fff0f6);
+    border: 1px solid #fff;
+    border-radius: 30px;
+
+    box-shadow: 0 30px 80px rgba(150, 60, 100, 0.25);
+
+    transform: translateY(25px) scale(0.95);
+    transition: 0.3s ease;
+}
+
+.contact-modal.active .contact-card {
+    transform: translateY(0) scale(1);
+}
+
+
+/* CLOSE BUTTON */
+
+.close-contact {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 50%;
+    background: #fbe1eb;
+    color: #a84f75;
+
+    font-size: 23px;
+    cursor: pointer;
+    line-height: 30px;
+    transition: 0.2s;
+}
+
+.close-contact:hover {
+    background: #e889aa;
+    color: white;
+    transform: rotate(90deg);
+}
+
+
+/* HEART */
+
+.contact-heart {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #f7b2cb;
+    color: white;
+    font-size: 35px;
+
+    box-shadow: 0 10px 25px #d9689438;
+    animation: heartFloat 2.5s ease-in-out infinite;
+}
+
+.contact-small {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #c85d87;
+}
+
+.contact-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #513342;
+    margin: 5px 0;
+}
+
+.contact-message {
+    color: #8b6677;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+
+/* CONTACT ITEMS */
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    text-align: left;
+    text-decoration: none;
+    color: #573746;
+
+    background: white;
+    border: 1px solid #f2d7e2;
+    border-radius: 17px;
+
+    padding: 15px;
+    margin-top: 12px;
+    transition: 0.25s;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    border-color: #e89bb8;
+    box-shadow: 0 10px 25px #c85c8917;
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+    background: #fff0f6;
+    font-size: 20px;
+}
+
+.contact-item span {
+    display: block;
+    font-size: 10px;
+    color: #b46c89;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.contact-item strong {
+    display: block;
+    font-size: 13px;
+    color: #593847;
+    word-break: break-word;
+}
+
+.contact-footer {
+    margin: 22px 0 0;
+    color: #b47790;
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   11. ANIMATIONS
+================================================== */
+
+@keyframes float {
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes heartFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* ==================================================
+   12. RESPONSIVE / MOBILE STYLES
+================================================== */
+
+@media (max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-card {
+        min-height: 250px;
+    }
+
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .strengths {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero {
+        padding: 10px 15px 40px;
+    }
+
+    .hero-card {
+        padding: 30px 23px;
+    }
+
+    .section {
+        padding: 35px 18px;
+    }
+
+    .education-section {
+        margin: 10px 18px;
+    }
+
+    .skill-grid,
+    .strengths {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .contacts {
+        flex-direction: column;
+    }
+
+    .nav {
+        padding: 0 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lock-card {
+        padding: 45px 24px;
+        border-radius: 28px;
+    }
+
+    .lock-card h1 {
+        font-size: 32px;
+    }
+
+    .lock-icon {
+        font-size: 54px;
+    }
+}

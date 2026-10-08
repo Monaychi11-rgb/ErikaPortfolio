@@ -1,0 +1,3 @@
+const lockScreen=document.getElementById("lockScreen"),resume=document.getElementById("resume"),unlock=document.getElementById("unlockBtn"),lockAgain=document.getElementById("lockAgain"),lockIcon=document.getElementById("lockIcon");
+unlock.addEventListener("click",()=>{lockIcon.textContent="🔓";lockIcon.style.transform="scale(1.15)";setTimeout(()=>{lockScreen.classList.add("hidden");resume.classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})},350)});
+lockAgain.addEventListener("click",()=>{resume.classList.add("hidden");lockScreen.classList.remove("hidden");lockIcon.textContent="🔒";window.scrollTo(0,0)});
